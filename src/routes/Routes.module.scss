@@ -3,17 +3,17 @@
 .appWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   background-color: colors.$GRAYD;
 
   .app {
     position: relative;
-    width: 414px;
-    height: 896px;
-    border-radius: 50px;
+    width: 350px;
+    height: 650px;
+    overflow: scroll;
     background: linear-gradient(142deg, colors.$START 0%, colors.$MIDDLE 20%, colors.$END 100%);
-    overflow: scroll;  
+    border-radius: 30px;
   }
 }

@@ -1,5 +1,5 @@
-import cx from 'classnames'
 import { NavLink } from 'react-router-dom'
+import cx from 'classnames'
 
 import styles from './GNB.module.scss'
 import { SearchIcon, BookmarkIcon } from 'assets/svgs/index'
@@ -15,7 +15,7 @@ const GNB = () => {
         </li>
         <li className={styles.link}>
           <NavLink to='bookmark' className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
-            <BookmarkIcon className={styles.bookmarkIcon}/>
+            <BookmarkIcon className={styles.bookmarkIcon} />
           </NavLink>
         </li>
       </ul>

@@ -1,22 +1,22 @@
 @use '/src/styles/constants/colors';
 
 .gnb {
-  margin-top: -80px;
   position: sticky;
   display: flex;
   justify-content: center;
-  width: 414px;
-  padding: 24px 0 30px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+  width: 350px;
+  padding: 17px 0 20px;
+  margin-top: -78px;
   background: linear-gradient(315deg, colors.$START 0%, colors.$MIDDLE 20%, colors.$END 100%);
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
   box-shadow: 0 -10px 10px -10px colors.$SHADOW;
 
   ul {
     display: flex;
-    width: 100%;
-    justify-content: center;
     column-gap: 150px;
+    justify-content: center;
+    width: 100%;
   }
 
   .link {
@@ -24,7 +24,8 @@
 
     .isActive {
 
-      .searchIcon, .bookmarkIcon {
+      .searchIcon,
+      .bookmarkIcon {
         font-weight: 600;
         fill: colors.$WHITE;
       }
@@ -32,15 +33,14 @@
 
     .searchIcon {
       width: 30px;
-      fill: rgba(255, 255, 255, 0.4);
       font-size: 20px;
+      fill: rgba(255, 255, 255, 0.4);
     }
 
     .bookmarkIcon {
       width: 23px;
-      fill: rgba(255, 255, 255, 0.4);
       font-size: 20px;
+      fill: rgba(255, 255, 255, 0.4);
     }
-    
   }
 }
