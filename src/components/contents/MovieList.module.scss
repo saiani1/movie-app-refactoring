@@ -1,0 +1,10 @@
+@use '/src/styles/constants/colors';
+
+.movieItemWrap {
+  padding: 200px 0 100px;
+
+  .errorText {
+    margin-top: 20px;
+    color: colors.$WHITE;
+  }
+}

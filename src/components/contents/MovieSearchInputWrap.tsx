@@ -1,35 +1,23 @@
 import React, { useRef, useCallback } from 'react'
-import toast from 'react-hot-toast'
+import { useRecoilState } from 'recoil'
 
 import styles from './MovieSearchInputWrap.module.scss'
-import { getMovieListApi } from 'services/movie'
 import { SearchIcon, UserIcon } from 'assets/svgs/index'
-import { IMovie } from 'types/movie'
+import { enteredMovieName } from 'states/movie'
 
-interface IProps {
-  page: number
-  setData: React.Dispatch<React.SetStateAction<IMovie[] | undefined>>
-}
-
-const MovieSearchInputWrap = ({ page, setData }: IProps) => {
+const MovieSearchInputWrap = () => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [, setEnterMovieName] = useRecoilState(enteredMovieName)
 
   const searchMovieHandler = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
 
       if (inputRef.current != null) {
-        const enterMovie = inputRef.current.value
-        getMovieListApi({
-          s: enterMovie,
-          page,
-        }).then((res) => {
-          if (res.data.Response === 'True') setData(res.data.Search)
-          else toast.error(res.data.Error)
-        })
+        setEnterMovieName(inputRef.current.value)
       }
     },
-    [page, setData]
+    [setEnterMovieName]
   )
 
   return (

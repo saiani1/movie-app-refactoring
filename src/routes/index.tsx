@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 
 import styles from './Routes.module.scss'
-import GNB from 'routes/_shared/GNB'
+import GNB from 'components/common/GNB'
 import MovieSearch from './MovieSearch'
 import MovieBookmark from './MovieBookmark'
 

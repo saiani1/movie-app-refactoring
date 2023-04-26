@@ -1,0 +1,35 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
+.backdrop {
+  @include position.absolute(0);
+  background-color: rgba(colors.$BLACK, 0.6);
+  border-radius: 8px;
+}
+
+.modal {
+  @include position.absolute(50% 0 0 50%);
+  display: flex;
+  height: 40px;
+  transform: translate(-50%, -50%);
+
+  button {
+    width: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    color: colors.$WHITE;
+  }
+
+  .allow {
+    background-color: colors.$TURQUOISE;
+  }
+
+  .allowCancel {
+    width: 80%;
+    background-color: colors.$PURPLE;
+  }
+
+  .cancel {
+    background-color: colors.$GRAY6;
+  }
+}

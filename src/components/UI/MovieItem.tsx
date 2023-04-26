@@ -5,6 +5,7 @@ import styles from './MovieItem.module.scss'
 import { IMovie } from 'types/movie.d'
 import { likeMovieNameState, storedMovieListState } from 'states/movie'
 import { LikeIcon } from 'assets/svgs/index'
+import ClickMovieModal from './ClickMovieModal'
 
 interface Props {
   movie: IMovie
@@ -15,8 +16,6 @@ const MovieItem = ({ movie }: Props) => {
   const [, setLikeMovie] = useRecoilState(likeMovieNameState)
   const [clickedMovie, setClickedMovie] = useState<boolean>(false)
   const [selectedMovie, setSelectedMovie] = useState<string>()
-
-  // let isLike = false
 
   // if (localstorageListMovie.find((item) => item.Title === selectedMovie)) {
   //   isLike = true
@@ -32,27 +31,9 @@ const MovieItem = ({ movie }: Props) => {
   //   savedLocalStorage = false
   // }
 
-  const btnClickHandler = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
-    // const addBookmarkHandler = () => {
-    //   if (selectedMovie !== undefined) {
-    //     setLikeMovie(selectedMovie)
-    //     setClickedMovie(false)
-    //   }
-    // }
-    // const removeBookmarkHandler = () => {
-    //   let tmpLocalStorageMovie: object[]
-    //   // eslint-disable-next-line prefer-const
-    //   tmpLocalStorageMovie = localstorageListMovie.filter((item) => item.Title !== selectedMovie)
-    //   localStorage.setItem('likeMovie', JSON.stringify(tmpLocalStorageMovie))
-    //   setLocalstorageListMovie(JSON.parse(localStorage.getItem('likeMovie') || ''))
-    //   setClickedMovie(false)
-    // }
-    // const cancleBtnClickHandler = () => {
-    //   setClickedMovie(false)
-    // }
-  }, [])
-
   const movieClickHandler = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    setClickedMovie(true)
+
     // setClickedMovie(true)
     // const tmp = e.target.innerText
     // const arr = []
@@ -81,25 +62,7 @@ const MovieItem = ({ movie }: Props) => {
           </div>
         </div>
       </button>
-      {clickedMovie && (
-        <div className={styles.modalWrap}>
-          <div className={styles.backdrop} />
-          <div className={styles.modal} role='presentation' onClick={btnClickHandler}>
-            {/* {isLike ? (
-              <button type='button' className={styles.allowCancel}>
-                즐겨찾기취소
-              </button>
-            ) : (
-              <button type='button' className={styles.allow}>
-                즐겨찾기
-              </button>
-            )}
-            <button type='button' className={styles.cancel}>
-              취소
-            </button> */}
-          </div>
-        </div>
-      )}
+      {clickedMovie && <ClickMovieModal setClickedMovie={setClickedMovie} />}
     </li>
   )
 }
